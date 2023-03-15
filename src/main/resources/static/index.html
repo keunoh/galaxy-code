@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>재즈</title>
 </head>
 <body>
-  Welcome Page
-  <img src="C:\my-project\galaxy\src\main\resources\static\img\bill_regend.jpeg" width="500" height="500">
+  <div>
+    Welcome Page
+  </div>
+  <img src="../images/bill_regend.jpeg"
+    th:src="@{../images/bill_regend.jpeg}"/>
 </body>
 </html>
