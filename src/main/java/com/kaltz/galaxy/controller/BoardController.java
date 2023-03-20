@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class BoardController {
     @GetMapping("/boards/new")
     public String createForm(Model model) {
         model.addAttribute("boardForm", new BoardForm());
-        return "board";
+        return "board/board";
     }
 
     @PostMapping("/boards/new")
@@ -27,6 +28,7 @@ public class BoardController {
 
         Board board = new Board();
         board.setName(form.getName());
+        board.setContent(form.getContent());
 
         boardRepository.save(board);
 
@@ -37,6 +39,13 @@ public class BoardController {
     public String list(Model model) {
         List<Board> boards = boardRepository.findAll();
         model.addAttribute("boards", boards);
-        return "boardList";
+        return "board/boardList";
+    }
+
+    @GetMapping("/boards/{id}")
+    public String boardById(@PathVariable Long id, Model model) {
+        Board findBoard = boardRepository.getById(id);
+        model.addAttribute("board", findBoard);
+        return "board/boardDetail";
     }
 }

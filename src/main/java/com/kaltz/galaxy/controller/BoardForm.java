@@ -7,4 +7,5 @@ import lombok.Setter;
 public class BoardForm {
 
     private String name;
+    private String content;
 }

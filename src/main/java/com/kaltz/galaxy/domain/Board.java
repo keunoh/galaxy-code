@@ -11,6 +11,8 @@ public class Board {
     Long id;
     String name;
 
+    String content;
+
     public Board() {
     }
 
