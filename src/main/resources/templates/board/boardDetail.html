@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판 상세</title>
+</head>
+<body>
+  <div>
+    <form th:object="${board}">
+      <div>
+        <input type="text" th:field="*{id}" readonly>
+      </div>
+      <div>
+        <input type="text" th:field="*{name}">
+      </div>
+      <div>
+        <textarea th:field="*{content}"></textarea>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
