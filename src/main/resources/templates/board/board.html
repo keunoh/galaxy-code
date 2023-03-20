@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragments/header :: header}">
   <meta charset="UTF-8">
   <title>게시판</title>
 </head>
 <body>
+<div class="container">
+  <div th:replace="~{fragments/bodyHeader :: bodyHeader}" />
+
+  <div class="jumbotron">
   <form action="/boards/new" method="post" th:object="${boardForm}">
-    <input type="text" name="name" placeholder="회원 아이디 입력">
+    <input class="form-control" type="text" name="name" placeholder="회원 아이디 입력">
     <div>
-      <textarea name="content"></textarea>
+      <textarea class="form-control" name="content"></textarea>
     </div>
-    <button type="submit">Submit</button>
+    <button class="btn btn-lg btn-dark" type="submit">Submit</button>
   </form>
-  <a href="/boards/list">입력한 게시판 리스트 이동</a>
+  <a class="btn btn-lg btn-dark" href="/boards/list">입력한 게시판 리스트 이동</a>
+  </div>
+
+  <div th:replace="~{fragments/footer :: footer}" />
+</div>
 </body>
 </html>
