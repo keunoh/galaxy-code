@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
 public class BoardRepositoryImpl implements BoardRepository {
 
     private final static Map<Long, Board> store = new HashMap<>();

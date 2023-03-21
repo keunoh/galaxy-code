@@ -24,7 +24,7 @@ public class BoardController {
     }
 
     @PostMapping("/boards/new")
-    public String create(Model model, BoardForm form) {
+    public String create(BoardForm form) {
 
         Board board = new Board();
         board.setName(form.getName());
