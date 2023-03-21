@@ -13,4 +13,6 @@ public interface MemberRepository {
     Member findOne(Long id);
 
     boolean findByName(String name);
+
+    void clear();
 }

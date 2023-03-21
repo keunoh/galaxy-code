@@ -1,14 +1,12 @@
 package com.kaltz.galaxy.repository;
 
 import com.kaltz.galaxy.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
 public class MemberRepositoryImpl implements MemberRepository {
 
     private final static Map<Long, Member> store = new HashMap<>();
@@ -41,5 +39,10 @@ public class MemberRepositoryImpl implements MemberRepository {
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public void clear() {
+        store.clear();
     }
 }
