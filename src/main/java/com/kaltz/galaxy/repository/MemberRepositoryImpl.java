@@ -1,6 +1,7 @@
 package com.kaltz.galaxy.repository;
 
 import com.kaltz.galaxy.domain.Member;
+import com.kaltz.galaxy.page.SearchDto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +24,21 @@ public class MemberRepositoryImpl implements MemberRepository {
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
+    }
+
+    @Override
+    public List<Member> findAll(SearchDto params) {
+        int pageSize = params.getPageSize();
+        int pageNumber = params.getPage();
+
+        ArrayList<Member> members = new ArrayList<>(store.values());
+        List<Member> pageMembers = members.subList((pageNumber - 1) * pageSize, Math.min(pageNumber * pageSize, members.size()));
+
+        return pageMembers;
+    }
+
+    public int getCount() {
+        return store.keySet().size();
     }
 
     @Override
